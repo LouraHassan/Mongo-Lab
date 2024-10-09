@@ -54,6 +54,12 @@ app.delete('/addBook/:id', async (req, res) => {
     return res.send(book)
 })
 
+app.get('/addBook/:id', (req, res) => {
+    const { id } = req.params
+    Book.findById(id).then(result => {
+        res.send(result)
+    })
+})
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 }
