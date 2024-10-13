@@ -9,7 +9,12 @@ const bookSchema = new Schema({
     eCopy: Boolean,
     price: Number,
     supportedLanguages: Object,
-    category: String
+    category: String,
+    author: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }]
 },
 { timestamps: true }
 )
